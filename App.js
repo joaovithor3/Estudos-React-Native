@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import TelaInicial from '../Paraty/paginas/Tela Inicial/index';
+import Restaurantes from '../Paraty/paginas/Restaurantes/index';
+import Hoteis from '../Paraty/paginas/Hoteis';
+import Passeios from '../Paraty/paginas/Passeios';
+
+
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+    <Stack.Navigator>
+
+       <Stack.Screen name= 'Tela Inicial' component ={TelaInicial} />
+       <Stack.Screen name= 'Restaurantes' component ={Restaurantes} />
+       <Stack.Screen name= 'Passeios' component ={Passeios} />
+       <Stack.Screen name= 'Hoteis' component ={Hoteis} />
+       
+    </Stack.Navigator>
+    </NavigationContainer>
+  
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+//finalizado
